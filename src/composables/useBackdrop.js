@@ -1,6 +1,6 @@
 import { ref, readonly } from "vue";
 
-const useBackdrop = () => {
+export default () => {
   const backdropState = ref(false);
   const openBackdrop = () => (backdropState.value = true);
   const closeBackdrop = () => (backdropState.value = false);
@@ -11,5 +11,3 @@ const useBackdrop = () => {
     closeBackdrop,
   };
 };
-
-export default useBackdrop;

@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from "vue";
+
 defineProps({ state: { type: Boolean, required: true } });
 
+const showContent = ref(false);
+
 const emits = defineEmits(["update:state"]);
-const close = () => {
-  emits("update:state", false);
-  showContent.value = false;
-};
+const close = () => (showContent.value = false);
 
 // Custom Directives
 // https://v3.vuejs.org/api/sfc-script-setup.html#using-custom-directives
@@ -19,8 +19,6 @@ const vCustomDirective = {
     document.body.style.overflow = "auto";
   },
 };
-
-const showContent = ref(false);
 </script>
 
 <template>
@@ -42,7 +40,7 @@ const showContent = ref(false);
         v-if="state"
         class="fixed inset-0 bg-neutral-600/60 z-2"
       >
-        <slot :close="close" :showContent="showContent" />
+        <slot :close="close" :showContent="showContent" :emits="emits" />
       </div>
     </transition>
   </teleport>

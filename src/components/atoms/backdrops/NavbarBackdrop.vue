@@ -7,14 +7,15 @@ import AppBackdrop from "./AppBackdrop.vue";
 </script>
 
 <template>
-  <AppBackdrop v-slot="{ close, showContent }">
+  <AppBackdrop v-slot="{ emits, close, showContent }">
     <transition
-      enter-active-class="transform duration-300 ease-out"
+      enter-active-class="transform duration-200 ease-out"
       enter-from-class="-translate-x-5 opacity-0"
       enter-to-class="translate-x-0 opacity-100"
-      leave-active-class="transform duration-300 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
+      leave-active-class="transform duration-200 ease-in"
+      leave-from-class="opacity-100 translate-x-0"
+      leave-to-class="opacity-0 -translate-x-5"
+      @after-leave="emits('update:state', false)"
     >
       <div class="p-6 h-screen bg-white w-2/3" v-if="showContent">
         <CloseButton @click="close" />

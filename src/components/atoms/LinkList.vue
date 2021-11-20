@@ -1,0 +1,35 @@
+<script setup>
+import { ref } from "vue";
+
+const linkList = ref(["Collections", "Men", "Women", "About", "Contact"]);
+</script>
+
+<template>
+  <ul>
+    <li v-for="link in linkList" :key="link" class="relative group sm:inline-grid sm:items-center">
+      <div
+        class="
+          absolute
+          w-full
+          h-1
+          bg-primary-800
+          opacity-0
+          bottom-4
+          transform
+          duration-150
+          hidden
+          sm:block
+          md:bottom-8
+          lg:bottom-1
+          group-hover:opacity-100 group-hover:translate-y-1
+        "
+      ></div>
+      <a
+        href="#!"
+        class="text-neutral-800 text-lg font-bold sm:text-neutral-600 sm:text-base sm:font-normal"
+      >
+        {{ link }}
+      </a>
+    </li>
+  </ul>
+</template>

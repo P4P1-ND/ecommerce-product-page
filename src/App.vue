@@ -1,4 +1,10 @@
+<script setup>
+import AppNavbar from "./components/organisms/AppNavbar.vue";
+</script>
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <h1>Hello from App</h1>
+  <div class="max-w-5xl mx-auto lg:max-w-6xl 2xl:max-w-7xl pb-20">
+    <AppNavbar />
+    <div class="h-40 w-full bg-primary-200"></div>
+  </div>
 </template>

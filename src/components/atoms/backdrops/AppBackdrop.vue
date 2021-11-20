@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from "vue";
 
-defineProps({ state: { type: Boolean, required: true } });
+defineProps({
+  state: { type: Boolean, required: true },
+  isNavbar: { type: Boolean, default: false },
+});
 
 const showContent = ref(false);
 
@@ -39,6 +42,7 @@ const vCustomDirective = {
         @click.self="close"
         v-if="state"
         class="fixed inset-0 bg-neutral-600/60 z-2"
+        :class="{ 'sm:hidden': isNavbar }"
       >
         <slot :close="close" :showContent="showContent" :emits="emits" />
       </div>

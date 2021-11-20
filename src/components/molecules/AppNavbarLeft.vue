@@ -13,6 +13,6 @@ const { backdropState, openBackdrop, closeBackdrop } = useBackdrop();
     <MenuButton @click="openBackdrop" class="sm:hidden" />
     <LogoButton />
     <LinkList class="hidden sm:inline-grid grid-flow-col gap-3 md:gap-8" />
-    <NavbarBackdrop class="sm:hidden" :state="backdropState" @update:state="closeBackdrop" />
+    <NavbarBackdrop :state="backdropState" @update:state="closeBackdrop" />
   </div>
 </template>

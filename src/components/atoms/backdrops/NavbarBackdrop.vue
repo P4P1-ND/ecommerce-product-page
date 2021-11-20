@@ -7,7 +7,7 @@ import AppBackdrop from "./AppBackdrop.vue";
 </script>
 
 <template>
-  <AppBackdrop v-slot="{ emits, close, showContent }">
+  <AppBackdrop :isNavbar="true" v-slot="{ emits, close, showContent }">
     <transition
       enter-active-class="transform duration-200 ease-out"
       enter-from-class="-translate-x-5 opacity-0"

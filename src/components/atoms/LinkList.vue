@@ -6,7 +6,7 @@ const linkList = ref(["Collections", "Men", "Women", "About", "Contact"]);
 
 <template>
   <ul>
-    <li v-for="link in linkList" :key="link" class="relative group sm:inline-grid sm:items-center">
+    <li v-for="link in linkList" :key="link" class="relative group sm:(inline-grid items-center)">
       <div
         class="
           absolute
@@ -21,12 +21,13 @@ const linkList = ref(["Collections", "Men", "Women", "About", "Contact"]);
           sm:block
           md:bottom-8
           lg:bottom-1
-          group-hover:opacity-100 group-hover:translate-y-1
+          group-hover:(opacity-100
+          translate-y-1)
         "
       ></div>
       <a
         href="#!"
-        class="text-neutral-800 text-lg font-bold sm:text-neutral-600 sm:text-base sm:font-normal"
+        class="text-neutral-800 text-lg font-bold sm:(text-neutral-600 text-base font-normal)"
       >
         {{ link }}
       </a>

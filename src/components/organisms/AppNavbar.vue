@@ -5,7 +5,7 @@ import AppNavbarLeft from "../molecules/AppNavbarLeft.vue";
 
 <template>
   <nav
-    class="px-6 grid grid-flow-col items-center justify-between lg:border-b lg:border-neutral-400"
+    class="px-6 grid grid-flow-col items-center justify-between lg:(border-b border-neutral-400)"
   >
     <AppNavbarLeft />
     <AppNavbarRight />

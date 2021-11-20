@@ -5,6 +5,9 @@ export default defineConfig({
     fontFamily: {
       sans: ["Kumbh Sans", "sans-serif"],
     },
+    boxShadow: {
+      custom: "0px 17px 13px 0px hsl(26deg 100% 55% / 20%)",
+    },
     colors: {
       transparent: "transparent",
       white: "hsl(0, 0%, 100%)",

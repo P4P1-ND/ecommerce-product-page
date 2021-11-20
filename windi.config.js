@@ -7,6 +7,7 @@ export default defineConfig({
     },
     colors: {
       transparent: "transparent",
+      white: "hsl(0, 0%, 100%)",
       primary: {
         200: "hsl(25, 100%, 94%)",
         800: "hsl(26, 100%, 55%)",

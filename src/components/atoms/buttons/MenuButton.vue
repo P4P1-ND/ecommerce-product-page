@@ -4,7 +4,7 @@ import IconMenu from "../icons/IconMenu.vue";
 </script>
 
 <template>
-  <AppButton variant="flat" class="group">
+  <AppButton variant="flat" class="group" aria-label="Menu Button">
     <IconMenu class="group-hover:text-neutral-800 group-focus:text-neutral-800" />
     <div
       class="

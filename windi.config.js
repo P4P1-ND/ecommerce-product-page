@@ -8,6 +8,21 @@ export default defineConfig({
     boxShadow: {
       custom: "0px 17px 13px 0px hsl(26deg 100% 55% / 20%)",
     },
+    keyframes: {
+      bounce: {
+        "0%, 100%": {
+          transform: "translateY(0)",
+          "animation-timing-function": "cubic-bezier(0,0,0.2,1)",
+        },
+        "50%": {
+          transform: "translateY(-25%)",
+          "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
+        },
+      },
+    },
+    animation: {
+      bounce: "bounce 1s infinite",
+    },
     colors: {
       transparent: "transparent",
       white: "hsl(0, 0%, 100%)",

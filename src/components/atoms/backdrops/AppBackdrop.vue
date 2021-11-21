@@ -41,7 +41,7 @@ const vCustomDirective = {
         @keyup.esc="close"
         @click.self="close"
         v-if="state"
-        class="fixed inset-0 bg-black/75 z-2"
+        class="fixed inset-0 bg-black/75"
         :class="{ 'sm:hidden': isNavbar }"
       >
         <slot :close="close" :showContent="showContent" :emits="emits" />

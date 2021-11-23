@@ -1,9 +1,24 @@
+<script setup>
+import { computed } from "vue";
+const props = defineProps({
+  color: {
+    type: String,
+    default: "gray",
+    validator: (val) => ["white", "gray"].includes(val),
+  },
+});
+
+const computedStyles = computed(() => {
+  return props.color === "gray" ? "text-neutral-600" : "text-white";
+});
+</script>
+
 <template>
   <svg
     width="22"
     height="20"
     fill="currentColor"
-    class="text-neutral-600"
+    :class="computedStyles"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

@@ -7,7 +7,7 @@ import IconCart from "../icons/IconCart.vue";
   <AppButton
     class="bg-primary-800 w-full shadow-custom filter hover:brightness-125 focus:brightness-125"
   >
-    <IconCart class="text-white" />
+    <IconCart color="white" />
     <span class="text-white text-base font-bold">Add to cart</span>
   </AppButton>
 </template>

@@ -13,7 +13,7 @@ const dynamicStyles = computed(() => {
   const primaryStyles = "p-4 rounded-lg grid grid-flow-col place-content-center gap-3";
   const flatStyles = "relative";
   const roundedStyles = "w-10 md:w-14 rounded-full border-[3px] border-transparent";
-  const iconStyles = "p-5";
+  const iconStyles = "p-5 grid place-content-center";
 
   switch (props.variant) {
     case "flat":

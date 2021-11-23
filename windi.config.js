@@ -21,7 +21,7 @@ export default defineConfig({
       },
     },
     animation: {
-      bounce: "bounce 1s infinite",
+      bounce: "bounce 0.8s infinite",
     },
     colors: {
       transparent: "transparent",

@@ -1,6 +1,10 @@
 <script setup>
+import { provide } from "vue";
 import AppNavbar from "./components/organisms/AppNavbar.vue";
 import AppProduct from "./components/organisms/AppProduct.vue";
+import store from "./store";
+
+provide("store", store);
 </script>
 
 <template>

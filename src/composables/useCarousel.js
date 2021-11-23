@@ -1,17 +1,13 @@
-import { ref, toRefs, reactive, onMounted, watch } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import useMedia from "./useMedia";
+import store from "../store";
 
 const useCarousel = () => {
-  const state = reactive({
-    imgList: ["image-product-1", "image-product-2", "image-product-3", "image-product-4"],
-    selectedImg: null,
-  });
-
   const { screenSize } = useMedia();
 
   const container = ref(null);
   const carousel = reactive({
-    itemLength: state.imgList.length,
+    itemLength: store.product.imgList.value.length,
     position: 0,
     fullWidth: 0,
   });
@@ -40,7 +36,7 @@ const useCarousel = () => {
     container.value.style.transform = `translateX(${carousel.position}px)`;
   };
 
-  return { ...toRefs(state), container, nextPhoto, prevPhoto };
+  return { container, nextPhoto, prevPhoto };
 };
 
 export default useCarousel;

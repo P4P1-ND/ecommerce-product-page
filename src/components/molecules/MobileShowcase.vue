@@ -1,9 +1,12 @@
 <script setup>
+import { inject } from "vue";
 import useCarousel from "../../composables/useCarousel";
 import IconPrevButton from "../atoms/buttons/IconPrevButton.vue";
 import IconNextButton from "../atoms/buttons/IconNextButton.vue";
 
-const { imgList, container, nextPhoto, prevPhoto } = useCarousel();
+const store = inject("store");
+const { imgList } = store.product;
+const { container, nextPhoto, prevPhoto } = useCarousel();
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import AppAnimation from "../AppAnimation.vue";
 
 defineProps({
   state: { type: Boolean, required: true },
@@ -25,15 +26,7 @@ const vCustomDirective = {
 
 <template>
   <teleport to="body">
-    <transition
-      enter-active-class="transform duration-300 ease-out"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="transform duration-300 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-      @after-enter="showContent = true"
-    >
+    <AppAnimation variant="fade" @after-enter="showContent = true">
       <div
         tabindex="0"
         v-custom-directive
@@ -44,6 +37,6 @@ const vCustomDirective = {
       >
         <slot :close="close" :showContent="showContent" :emits="emits" />
       </div>
-    </transition>
+    </AppAnimation>
   </teleport>
 </template>

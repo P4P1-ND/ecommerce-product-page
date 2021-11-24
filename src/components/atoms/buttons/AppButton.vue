@@ -29,7 +29,7 @@ const dynamicStyles = computed(() => {
 </script>
 
 <template>
-  <button :class="dynamicStyles" class="cursor-pointer focus:outline-none">
+  <button :class="dynamicStyles" class="focus:outline-none">
     <slot />
   </button>
 </template>

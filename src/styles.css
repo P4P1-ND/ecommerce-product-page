@@ -1,0 +1,15 @@
+@layer base {
+  @font-face {
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    src: url("/fonts/KumbhSans-Bold.woff2") format("woff2"),
+      url("/fonts/KumbhSans-Bold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "Kumbh Sans";
+    font-weight: 400;
+    src: url("/fonts/KumbhSans-Regular.woff2") format("woff2"),
+      url("/fonts/KumbhSans-Regular.woff") format("woff");
+  }
+}

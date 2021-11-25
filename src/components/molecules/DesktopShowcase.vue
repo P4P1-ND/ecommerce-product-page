@@ -8,7 +8,7 @@ const { imgList } = store.product;
 <template>
   <button @click="handleBackdrop" class="rounded-3xl overflow-hidden">
     <img
-      :src="`/products/${imgList[0]}.jpg`"
+      :src="`/img/products/${imgList[0]}.jpg`"
       class="h-full w-full object-cover"
       alt="Main Product Image"
     />
@@ -18,7 +18,7 @@ const { imgList } = store.product;
     <li v-for="(img, idx) in imgList" :key="`product-${idx}`">
       <button class="rounded-lg overflow-hidden relative h-full">
         <img
-          :src="`/products/${img}-thumbnail.jpg`"
+          :src="`/img/products/${img}-thumbnail.jpg`"
           class="w-full h-full object-cover"
           :alt="`Product thumbnail #${idx}`"
         />

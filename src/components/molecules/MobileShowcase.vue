@@ -17,7 +17,7 @@ const { container, nextPhoto, prevPhoto } = useCarousel();
         v-for="(img, idx) in imgList"
         :key="`product-${idx}`"
         class="w-full h-full object-cover"
-        :src="`/products/${img}.jpg`"
+        :src="`/img/products/${img}.jpg`"
         :alt="`Product Image #${idx + 1}`"
       />
     </div>

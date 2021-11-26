@@ -1,9 +1,5 @@
 import { reactive, toRefs, computed } from "vue";
-
-const { format: formatPrice } = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
+import formatPrice from "../lib/formatPrice";
 
 const state = reactive({
   name: "Fall Limited Edition Sneakers",
@@ -14,8 +10,9 @@ const state = reactive({
     normal: 250,
     discount: 50,
   },
+  stock: 5,
   imgList: ["image-product-1", "image-product-2", "image-product-3", "image-product-4"],
-  selectedImg: null,
+  // selectedImg: null,
 });
 
 const getters = reactive({
@@ -26,11 +23,18 @@ const getters = reactive({
 
     return formatPrice(priceReduced);
   }),
+  mainImg: computed(() => state.imgList[0]),
 });
+
+const actions = {
+  decreaseStock: (value) => (state.stock -= value),
+  resetStock: () => (state.stock = 5),
+};
 
 export default () => {
   return {
     ...toRefs(state),
     ...toRefs(getters),
+    actions,
   };
 };

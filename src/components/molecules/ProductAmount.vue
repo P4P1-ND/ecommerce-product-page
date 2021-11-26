@@ -1,12 +1,23 @@
 <script setup>
+import { inject } from "vue";
 import DecreaseButton from "../atoms/buttons/DecreaseButton.vue";
 import IncreaseButton from "../atoms/buttons/IncreaseButton.vue";
+
+const store = inject("store");
+const {
+  amountToAdd,
+  actions: { increaseAmount, decreaseAmount, isAmountEmpty },
+} = store.cart;
+const { stock } = store.product;
 </script>
 
 <template>
   <div class="bg-neutral-200 rounded-lg grid grid-flow-col items-center justify-between">
-    <DecreaseButton />
-    <span class="text-neutral-800 text-xl font-bold">0</span>
-    <IncreaseButton />
+    <DecreaseButton @click="decreaseAmount" :class="{ 'cursor-not-allowed': isAmountEmpty() }" />
+    <span class="text-neutral-800 text-xl font-bold">{{ amountToAdd }}</span>
+    <IncreaseButton
+      @click="increaseAmount"
+      :class="{ 'cursor-not-allowed': amountToAdd === stock }"
+    />
   </div>
 </template>

@@ -20,11 +20,11 @@ const { description, tag, name, oldPrice, discount, newPrice } = store.product;
 
   <aside class="mt-6 grid grid-flow-col items-center justify-between sm:(grid-flow-row gap-1)">
     <div class="inline-grid grid-flow-col items-center gap-4">
-      <h2 class="text-neutral-800 text-3xl font-bold">{{ oldPrice }}</h2>
+      <h2 class="text-neutral-800 text-3xl font-bold">{{ newPrice }}</h2>
       <span class="px-2 py-px bg-primary-200 text-primary-800 text-base font-bold rounded-md">
         {{ discount }}
       </span>
     </div>
-    <span class="text-neutral-400 text-base font-bold line-through">{{ newPrice }}</span>
+    <span class="text-neutral-400 text-base font-bold line-through">{{ oldPrice }}</span>
   </aside>
 </template>

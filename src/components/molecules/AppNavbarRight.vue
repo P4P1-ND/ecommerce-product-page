@@ -14,7 +14,7 @@ const {
 
 <template>
   <div class="h-full inline-grid grid-flow-col items-center gap-5 md:gap-8">
-    <CartButton @click="handleCartMenu" />
+    <CartButton @click.stop="handleCartMenu" />
     <AvatarButton />
     <AppAnimation variant="fade-vertical">
       <CartMenu v-if="openCartMenu" />

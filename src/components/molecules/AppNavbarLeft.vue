@@ -15,7 +15,7 @@ const { showOn } = useMedia();
     <LogoButton />
     <LinkList v-if="showOn('tablet')" class="inline-grid grid-flow-col gap-3 md:gap-8" />
     <template v-else>
-      <MenuButton @click="openBackdrop" class="order-first" />
+      <MenuButton @click.stop="openBackdrop" class="order-first" />
       <NavbarBackdrop :state="backdropState" @update:state="closeBackdrop" />
     </template>
   </div>

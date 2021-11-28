@@ -5,7 +5,7 @@ const props = defineProps({
   variant: {
     type: String,
     required: true,
-    validator: (val) => ["fade", "fade-horizontal", "fade-vertical"].includes(val),
+    validator: (val) => ["fade", "fade-horizontal", "fade-vertical", "fade-zoom"].includes(val),
   },
 });
 
@@ -17,6 +17,8 @@ const computedFromStyles = computed(() => {
       return "-translate-x-5 opacity-0";
     case "fade-vertical":
       return "-translate-y-5 opacity-0";
+    case "fade-zoom":
+      return "scale-80 opacity-0";
     default:
       break;
   }
@@ -30,6 +32,8 @@ const computedToStyles = computed(() => {
       return "translate-x-0 opacity-100";
     case "fade-vertical":
       return "translate-y-0 opacity-100";
+    case "fade-zoom":
+      return "scale-100 opacity-100";
     default:
       break;
   }

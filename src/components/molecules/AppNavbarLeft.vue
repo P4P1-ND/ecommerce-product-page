@@ -2,7 +2,7 @@
 import MenuButton from "../atoms/buttons/MenuButton.vue";
 import LogoButton from "../atoms/buttons/LogoButton.vue";
 import LinkList from "../atoms/LinkList.vue";
-import NavbarBackdrop from "../atoms/backdrops/NavbarBackdrop.vue";
+import NavbarBackdrop from "./backdrops/NavbarBackdrop.vue";
 import useBackdrop from "../../composables/useBackdrop";
 import useMedia from "../../composables/useMedia";
 

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onUnmounted } from "vue";
-import AppAnimation from "../AppAnimation.vue";
+import AppAnimation from "./AppAnimation.vue";
 
 defineProps({
   state: { type: Boolean, required: true },

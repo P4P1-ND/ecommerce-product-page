@@ -1,7 +1,10 @@
 <script setup>
 import { ref, inject, watch } from "vue";
 import AppButton from "../atoms/buttons/AppButton.vue";
+import LightboxBackdrop from "./backdrops/LightboxBackdrop.vue";
+import useBackdrop from "../../composables/useBackdrop";
 
+const { backdropState, openBackdrop, closeBackdrop } = useBackdrop();
 const store = inject("store");
 const {
   imgList,
@@ -18,12 +21,16 @@ watch(mainImg, () => {
 </script>
 
 <template>
-  <AppButton variant="flat" class="rounded-3xl overflow-hidden">
-    <img
-      :src="`/img/products/${mainImg}.jpg`"
-      class="h-full w-full object-cover"
-      alt="Main Product Image"
-    />
+  <AppButton @click="openBackdrop" variant="flat" class="rounded-3xl overflow-hidden">
+    <picture>
+      <source type="image/avif" :srcset="`/img/products/${mainImg}.avif`" />
+      <img
+        width="418"
+        height="418"
+        :src="`/img/products/${mainImg}.jpg`"
+        alt="Main Product Image"
+      />
+    </picture>
   </AppButton>
 
   <ul class="mt-8 grid grid-cols-4 gap-5 relative">
@@ -31,6 +38,8 @@ watch(mainImg, () => {
       <AppButton variant="flat" class="rounded-lg overflow-hidden w-full h-full">
         <img
           :src="`/img/products/${img}-thumbnail.jpg`"
+          width="90"
+          height="90"
           class="w-full h-full object-cover"
           :alt="`Product thumbnail #${idx}`"
         />
@@ -43,4 +52,5 @@ watch(mainImg, () => {
       ></div>
     </li>
   </ul>
+  <LightboxBackdrop :state="backdropState" @update:state="closeBackdrop" />
 </template>

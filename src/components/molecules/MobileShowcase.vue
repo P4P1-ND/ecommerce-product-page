@@ -13,13 +13,18 @@ const { container, nextPhoto, prevPhoto } = useCarousel();
   <section class="relative h-full overflow-hidden">
     <div class="absolute inset-0 grid grid-flow-col duration-500" ref="container">
       <!-- Items of the carousel -->
-      <img
-        v-for="(img, idx) in imgList"
-        :key="`product-${idx}`"
-        class="w-full h-full object-cover"
-        :src="`/img/products/${img}.jpg`"
-        :alt="`Product Image #${idx + 1}`"
-      />
+      <!-- https://codelabs.developers.google.com/codelabs/avif#0 -->
+      <picture v-for="(img, idx) in imgList">
+        <source type="image/avif" :srcset="`/img/products/${img}.avif`" />
+        <img
+          :key="`product-${idx}`"
+          class="w-full h-full object-cover"
+          width="375"
+          height="400"
+          :src="`/img/products/${img}.jpg`"
+          :alt="`Product Image #${idx + 1}`"
+        />
+      </picture>
     </div>
     <!-- Controls of the carousel -->
     <div class="absolute inset-x-3 inset-y-0 grid grid-flow-col justify-between items-center">

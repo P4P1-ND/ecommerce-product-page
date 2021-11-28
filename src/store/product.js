@@ -12,7 +12,7 @@ const state = reactive({
   },
   stock: 5,
   imgList: ["image-product-1", "image-product-2", "image-product-3", "image-product-4"],
-  // selectedImg: null,
+  mainImg: "image-product-1",
 });
 
 const getters = reactive({
@@ -23,12 +23,14 @@ const getters = reactive({
 
     return formatPrice(priceReduced);
   }),
-  mainImg: computed(() => state.imgList[0]),
 });
 
 const actions = {
   decreaseStock: (value) => (state.stock -= value),
   resetStock: () => (state.stock = 5),
+  changeMainImg: (img) => {
+    state.mainImg = img;
+  },
 };
 
 export default () => {

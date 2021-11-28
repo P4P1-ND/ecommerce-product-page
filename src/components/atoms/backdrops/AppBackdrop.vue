@@ -1,10 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 import AppAnimation from "../AppAnimation.vue";
 
 defineProps({
   state: { type: Boolean, required: true },
 });
+
+onUnmounted(() => emits("update:state", false));
 
 const showContent = ref(false);
 

@@ -1,7 +1,10 @@
+/* https://web.dev/font-display/?utm_source=lighthouse&utm_medium=devtools */
 @layer base {
   @font-face {
     font-family: "Kumbh Sans";
     font-weight: 700;
+    font-display: swap;
+
     src: url("/fonts/KumbhSans-Bold.woff2") format("woff2"),
       url("/fonts/KumbhSans-Bold.woff") format("woff");
   }
@@ -9,6 +12,8 @@
   @font-face {
     font-family: "Kumbh Sans";
     font-weight: 400;
+    font-display: swap;
+
     src: url("/fonts/KumbhSans-Regular.woff2") format("woff2"),
       url("/fonts/KumbhSans-Regular.woff") format("woff");
   }

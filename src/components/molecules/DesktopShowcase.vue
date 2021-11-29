@@ -28,6 +28,7 @@ watch(mainImg, () => {
         width="418"
         height="418"
         :src="`/img/products/${mainImg}.jpg`"
+        class="w-full h-full object-center"
         alt="Main Product Image"
       />
     </picture>

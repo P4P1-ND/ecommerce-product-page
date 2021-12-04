@@ -21,14 +21,14 @@ watch(mainImg, () => {
 </script>
 
 <template>
-  <AppButton @click="openBackdrop" variant="flat" class="rounded-3xl overflow-hidden">
+  <AppButton @click="openBackdrop" variant="flat" class="group rounded-3xl overflow-hidden">
     <picture>
       <source type="image/avif" :srcset="`/img/products/${mainImg}.avif`" />
       <img
         width="418"
         height="418"
         :src="`/img/products/${mainImg}.jpg`"
-        class="w-full object-center"
+        class="w-full object-center transform group-focus:scale-115 duration-300"
         alt="Main Product Image"
       />
     </picture>
@@ -36,12 +36,12 @@ watch(mainImg, () => {
 
   <ul class="mt-8 grid grid-cols-4 gap-5 relative">
     <li v-for="(img, idx) in imgList" :key="`product-${idx}`" @click="changeMainImg(img)">
-      <AppButton variant="flat" class="rounded-lg overflow-hidden w-full h-full">
+      <AppButton variant="flat" class="group rounded-lg overflow-hidden w-full h-full">
         <img
           :src="`/img/products/${img}-thumbnail.jpg`"
           width="90"
           height="90"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover transform group-focus:scale-115 duration-300"
           :alt="`Product thumbnail #${idx}`"
         />
       </AppButton>

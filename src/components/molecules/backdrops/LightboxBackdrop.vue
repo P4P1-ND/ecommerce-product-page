@@ -22,7 +22,7 @@ const { imgList, mainImg } = store.product;
           grid grid-flow-rows
           gap-8
           place-content-center
-          2xl:max-w-xl
+          2xl:max-w-lg
         "
       >
         <CloseButton variantClose="primary" @click="close" class="justify-self-end" />
@@ -32,6 +32,7 @@ const { imgList, mainImg } = store.product;
             <img
               width="400"
               height="400"
+              class="w-full object-cover"
               :src="`/img/products/${mainImg}.jpg`"
               alt="Main Product Image"
             />

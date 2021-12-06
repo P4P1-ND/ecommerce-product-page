@@ -18,6 +18,7 @@ const {
       hover:opacity-60
       focus:opacity-60
       disabled:(cursor-not-allowed
+      shadow-none
       filter
       brightness-70)
     "

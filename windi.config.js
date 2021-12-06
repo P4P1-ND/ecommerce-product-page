@@ -2,9 +2,11 @@ import { defineConfig } from "vite-plugin-windicss";
 
 export default defineConfig({
   theme: {
-    boxShadow: {
-      button: "0px 17px 13px 0px hsl(26deg 100% 55% / 20%)",
-      cart: "-7px 7px 11px hsl(0deg 0% 19% / 20%), 7px 7px 11px hsl(0deg 0% 19% / 20%)",
+    extend: {
+      boxShadow: {
+        button: "0px 17px 13px 0px hsl(26deg 100% 55% / 20%)",
+        cart: "-7px 7px 11px hsl(0deg 0% 19% / 20%), 7px 7px 11px hsl(0deg 0% 19% / 20%)",
+      },
     },
     fontFamily: {
       sans: ["Kumbh Sans", "sans-serif"],

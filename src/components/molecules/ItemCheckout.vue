@@ -1,5 +1,5 @@
 <script setup>
-import { inject, computed } from "vue";
+import { inject } from "vue";
 import AppButton from "../atoms/buttons/AppButton.vue";
 import DeleteButton from "../atoms/buttons/DeleteButton.vue";
 
@@ -10,14 +10,10 @@ const {
   total,
   product,
 } = store.cart;
-
-const computedStyles = computed(() => {
-  return isCartEmpty() ? "grid place-content-center h-48" : "px-5 py-8";
-});
 </script>
 
 <template>
-  <section :class="computedStyles">
+  <section :class="[isCartEmpty ? 'grid place-content-center h-48' : 'px-5 py-8']">
     <p v-if="isCartEmpty()" class="text-neutral-600 font-bold text-base">Your cart is empty.</p>
 
     <article v-else class="space-y-6">

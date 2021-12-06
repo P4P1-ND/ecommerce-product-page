@@ -42,9 +42,7 @@ const computedStyles = computed(() => {
         <DeleteButton @click="deleteProduct" />
       </div>
 
-      <AppButton
-        class="font-bold bg-primary-800 text-white filter hover:brightness-125 focus:brightness-125"
-      >
+      <AppButton class="font-bold bg-primary-800 text-white hover:opacity-70 focus:opacity-70">
         Checkout
       </AppButton>
     </article>

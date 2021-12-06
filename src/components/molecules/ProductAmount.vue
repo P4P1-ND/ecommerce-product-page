@@ -22,11 +22,16 @@ const { stock } = store.product;
       overflow-hidden
     "
   >
-    <DecreaseButton @click="decreaseAmount" :class="{ 'cursor-not-allowed': isAmountEmpty() }" />
+    <DecreaseButton
+      @click="decreaseAmount"
+      class="disabled:cursor-not-allowed"
+      :disabled="isAmountEmpty()"
+    />
     <span class="text-neutral-800 text-xl font-bold">{{ amountToAdd }}</span>
     <IncreaseButton
       @click="increaseAmount"
-      :class="{ 'cursor-not-allowed': amountToAdd === stock }"
+      class="disabled:cursor-not-allowed"
+      :disabled="amountToAdd === stock"
     />
   </div>
 </template>

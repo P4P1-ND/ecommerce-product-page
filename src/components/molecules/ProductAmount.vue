@@ -12,22 +12,13 @@ const { stock } = store.product;
 </script>
 
 <template>
-  <div
-    class="
-      bg-neutral-200
-      rounded-lg
-      grid grid-flow-col
-      items-center
-      justify-between
-      overflow-hidden
-    "
-  >
+  <div class="bg-neutral-200 rounded-lg grid grid-flow-col justify-between overflow-hidden">
     <DecreaseButton
       @click="decreaseAmount"
       class="disabled:cursor-not-allowed"
       :disabled="isAmountEmpty()"
     />
-    <span class="text-neutral-800 text-xl font-bold">{{ amountToAdd }}</span>
+    <span class="text-neutral-800 text-xl font-bold self-center">{{ amountToAdd }}</span>
     <IncreaseButton
       @click="increaseAmount"
       class="disabled:cursor-not-allowed"

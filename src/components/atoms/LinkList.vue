@@ -41,7 +41,7 @@ const linkList = ref(["Collections", "Men", "Women", "About", "Contact"]);
           sm:(text-neutral-600
           text-base
           font-normal)
-          focus:outline-none
+          group-focus:text-black
         "
       >
         {{ link }}

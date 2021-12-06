@@ -22,6 +22,9 @@ const vClickOutside = {
     };
     document.addEventListener("click", el.clickOutsideEvent);
   },
+  mounted: (el) => {
+    el.focus();
+  },
   unmounted: (el) => {
     document.removeEventListener("click", el.clickOutsideEvent);
   },
@@ -31,6 +34,8 @@ const vClickOutside = {
 <template>
   <AppAnimation variant="fade-vertical">
     <div
+      tabindex="0"
+      @keyup.esc="handleCartMenu"
       v-if="openCartMenu"
       v-click-outside="handleCartMenu"
       class="
@@ -46,8 +51,7 @@ const vClickOutside = {
         z-5
         md:top-2/3
         xl:-right-10
-        focus:(border-2
-        border-primary-800)
+        focus:outline-none
       "
     >
       <header class="p-5 border-b-2 border-neutral-200">

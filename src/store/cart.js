@@ -37,6 +37,9 @@ const actions = {
     createProduct();
     productActions.decreaseStock(state.amountToAdd);
     state.amountToAdd = 0;
+
+    // Scroll to the top for key users
+    window.scrollTo(0, 0);
   },
 };
 

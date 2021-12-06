@@ -17,4 +17,8 @@
     src: url("/fonts/KumbhSans-Regular.woff2") format("woff2"),
       url("/fonts/KumbhSans-Regular.woff") format("woff");
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }

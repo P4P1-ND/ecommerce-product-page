@@ -1,7 +1,7 @@
 <script setup>
+import { inject } from "vue";
 import ItemCheckout from "./ItemCheckout.vue";
 import AppAnimation from "../atoms/AppAnimation.vue";
-import { inject } from "vue";
 
 const store = inject("store");
 
@@ -15,7 +15,10 @@ const vClickOutside = {
   beforeMount: (el, binding) => {
     el.clickOutsideEvent = (event) => {
       // here I check that click was outside the el and his children
-      if (!(el == event.target || el.contains(event.target))) {
+      // Need to limit the event to #app so that it doesn't activate when a backdrop is open
+      // Because the backdrop is injected into the DOM outside of #app
+      const appDOM = document.querySelector("#app");
+      if (appDOM.contains(event.target) && !(el == event.target || el.contains(event.target))) {
         // and if it did, call method provided in attribute value
         binding.value();
       }

@@ -30,8 +30,8 @@ const {
             alt="Product's thumbnail"
             class="w-12 h-12 object-center rounded"
           />
-          <!-- TODO: Investigate why I have to repeat the truncate class in order for it to actually work -->
-          <div class="truncate text-neutral-600">
+          <!-- NOTE: Still don't know why I have to hide the overflow on the parent -->
+          <div class="text-neutral-600 overflow-hidden">
             <h3 class="truncate">{{ product.name }}</h3>
             <p>
               {{ product.price }} x {{ qty }}

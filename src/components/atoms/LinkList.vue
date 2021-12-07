@@ -38,10 +38,11 @@ const linkList = ref(["Collections", "Men", "Women", "About", "Contact"]);
         class="
           text-neutral-800 text-lg
           font-bold
+          group-focus:text-primary-800
           sm:(text-neutral-600
           text-base
-          font-normal)
-          group-focus:text-black
+          font-normal
+          group-focus:text-black)
         "
       >
         {{ link }}

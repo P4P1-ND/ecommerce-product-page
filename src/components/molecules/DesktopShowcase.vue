@@ -28,7 +28,7 @@ watch(mainImg, () => {
         width="418"
         height="418"
         :src="`/img/products/${mainImg}.jpg`"
-        class="w-full object-center transform group-focus:scale-115 duration-300"
+        class="w-full object-center transform group-focus:opacity-50"
         alt="Main Product Image"
       />
     </picture>
@@ -41,7 +41,7 @@ watch(mainImg, () => {
           :src="`/img/products/${img}-thumbnail.jpg`"
           width="90"
           height="90"
-          class="w-full h-full object-cover transform group-focus:scale-115 duration-300"
+          class="w-full h-full object-cover transform group-focus:opacity-50"
           :alt="`Product thumbnail #${idx}`"
         />
       </AppButton>

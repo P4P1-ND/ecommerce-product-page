@@ -41,7 +41,7 @@ watch(mainImg, () => {
           :src="`/img/products/${img}-thumbnail.jpg`"
           width="90"
           height="90"
-          class="w-full h-full object-cover transform group-focus:opacity-50"
+          class="w-full h-full object-cover group-focus:opacity-50"
           :alt="`Product thumbnail #${idx}`"
         />
       </AppButton>

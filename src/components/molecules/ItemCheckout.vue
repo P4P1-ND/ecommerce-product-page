@@ -2,6 +2,10 @@
 import { inject } from "vue";
 import AppButton from "../atoms/buttons/AppButton.vue";
 import DeleteButton from "../atoms/buttons/DeleteButton.vue";
+import useBackdrop from "../../composables/useBackdrop";
+import CheckoutBackdrop from "./backdrops/CheckoutBackdrop.vue";
+
+const { backdropState, openBackdrop, closeBackdrop } = useBackdrop();
 
 const store = inject("store");
 const {
@@ -38,9 +42,14 @@ const {
         <DeleteButton @click="deleteProduct" />
       </div>
 
-      <AppButton class="font-bold bg-primary-800 text-white hover:opacity-70 focus:opacity-70">
+      <AppButton
+        @click="openBackdrop"
+        class="font-bold bg-primary-800 text-white hover:opacity-70 focus:opacity-70"
+      >
         Checkout
       </AppButton>
+
+      <CheckoutBackdrop :state="backdropState" @update:state="closeBackdrop" />
     </article>
   </section>
 </template>

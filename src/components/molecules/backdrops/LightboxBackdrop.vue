@@ -15,32 +15,23 @@ const {
 } = store.product;
 
 const activeThumbnail = ref(null);
+const index = ref(0);
 
 watchEffect(() => {
   if (activeThumbnail.value) {
-    const index = imgList.value.findIndex((el) => el === mainImg.value);
-    activeThumbnail.value.style.transform = `translateX(calc(${index} * (100% + 16px)))`;
+    index.value = imgList.value.findIndex((el) => el === mainImg.value);
+    activeThumbnail.value.style.transform = `translateX(calc(${index.value} * (100% + 16px)))`;
   }
 });
 
 const nextItem = () => {
-  const currentImageNumber = imgList.value.findIndex((el) => el === mainImg.value) + 1;
-  let nextImageNumber;
-
-  if (currentImageNumber === imgList.value.length) nextImageNumber = 1;
-  else nextImageNumber = currentImageNumber + 1;
-
-  changeMainImg(`image-product-${nextImageNumber}`);
+  if (index.value === imgList.value.length - 1) changeMainImg("image-product-1");
+  else changeMainImg(`image-product-${index.value + 2}`);
 };
 
 const prevItem = () => {
-  const currentImageNumber = imgList.value.findIndex((el) => el === mainImg.value) + 1;
-  let prevImageNumber;
-
-  if (currentImageNumber === 1) prevImageNumber = imgList.value.length;
-  else prevImageNumber = currentImageNumber - 1;
-
-  changeMainImg(`image-product-${prevImageNumber}`);
+  if (index.value === 0) changeMainImg(`image-product-${imgList.value.length}`);
+  else changeMainImg(`image-product-${index.value}`);
 };
 </script>
 

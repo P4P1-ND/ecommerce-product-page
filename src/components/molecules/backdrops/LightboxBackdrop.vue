@@ -56,12 +56,12 @@ const prevItem = () => {
         <div class="h-100 relative">
           <AppButton tabindex="-1" variant="flat" class="rounded-3xl overflow-hidden">
             <picture>
-              <source type="image/avif" :srcset="`/img/products/${mainImg}.avif`" />
+              <source type="image/avif" :srcset="`./img/products/${mainImg}.avif`" />
               <img
                 width="400"
                 height="400"
                 class="w-full object-cover"
-                :src="`/img/products/${mainImg}.jpg`"
+                :src="`./img/products/${mainImg}.jpg`"
                 alt="Main Product Image"
               />
             </picture>
@@ -78,7 +78,7 @@ const prevItem = () => {
           <li v-for="(img, idx) in imgList" :key="`product-${idx}`" @click="changeMainImg(img)">
             <AppButton variant="flat" class="rounded-lg overflow-hidden w-full h-full group">
               <img
-                :src="`/img/products/${img}-thumbnail.jpg`"
+                :src="`./img/products/${img}-thumbnail.jpg`"
                 class="w-full h-full object-cover transform group-focus:scale-120 duration-300"
                 width="73"
                 height="79"

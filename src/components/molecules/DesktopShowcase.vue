@@ -23,11 +23,11 @@ watch(mainImg, () => {
 <template>
   <AppButton @click="openBackdrop" variant="flat" class="group rounded-3xl overflow-hidden">
     <picture>
-      <source type="image/avif" :srcset="`/img/products/${mainImg}.avif`" />
+      <source type="image/avif" :srcset="`./img/products/${mainImg}.avif`" />
       <img
         width="418"
         height="418"
-        :src="`/img/products/${mainImg}.jpg`"
+        :src="`./img/products/${mainImg}.jpg`"
         class="w-full object-center transform group-focus:opacity-50"
         alt="Main Product Image"
       />
@@ -38,7 +38,7 @@ watch(mainImg, () => {
     <li v-for="(img, idx) in imgList" :key="`product-${idx}`" @click="changeMainImg(img)">
       <AppButton variant="flat" class="group rounded-lg overflow-hidden w-full h-full">
         <img
-          :src="`/img/products/${img}-thumbnail.jpg`"
+          :src="`./img/products/${img}-thumbnail.jpg`"
           width="90"
           height="90"
           class="w-full h-full object-cover group-focus:opacity-50"

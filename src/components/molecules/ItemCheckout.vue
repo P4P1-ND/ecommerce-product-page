@@ -26,7 +26,7 @@ const {
           <img
             width="48"
             height="48"
-            :src="`/img/products/${product.img}-thumbnail.jpg`"
+            :src="`./img/products/${product.img}-thumbnail.jpg`"
             alt="Product's thumbnail"
             class="w-12 h-12 object-center rounded"
           />

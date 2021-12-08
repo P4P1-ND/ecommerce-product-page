@@ -15,13 +15,13 @@ const { container, nextPhoto, prevPhoto } = useCarousel();
       <!-- Items of the carousel -->
       <!-- https://codelabs.developers.google.com/codelabs/avif#0 -->
       <picture v-for="(img, idx) in imgList">
-        <source type="image/avif" :srcset="`/img/products/${img}.avif`" />
+        <source type="image/avif" :srcset="`./img/products/${img}.avif`" />
         <img
           :key="`product-${idx}`"
           class="w-full h-full object-cover"
           width="375"
           height="400"
-          :src="`/img/products/${img}.jpg`"
+          :src="`./img/products/${img}.jpg`"
           :alt="`Product Image #${idx + 1}`"
         />
       </picture>

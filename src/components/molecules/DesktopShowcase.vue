@@ -47,6 +47,7 @@ watch(mainImg, () => {
       </AppButton>
     </li>
     <li class="absolute inset-0 grid grid-cols-4 gap-5 pointer-events-none">
+      <!-- TODO: Show this when the thumbnail image are loaded -->
       <div
         class="border-2 border-primary-800 rounded-lg bg-white/50 duration-200"
         ref="activeThumbnail"

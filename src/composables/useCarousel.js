@@ -1,42 +1,64 @@
-import { ref, reactive, onMounted, watch } from "vue";
-import useMedia from "./useMedia";
-import store from "../store";
+import { watch, onMounted, onBeforeUnmount, reactive, shallowRef } from "vue";
 
-const useCarousel = () => {
-  const { screenSize } = useMedia();
+const useCarousel = (carouselContainer) => {
+  // https://www.sitepoint.com/vue-3-reactivity-system/#shallowmethods
+  // shallowRef creates a ref which tracks only its value property without making its value reactive.
+  const observer = shallowRef()
+  const carouselDOM = shallowRef()
 
-  const container = ref(null);
   const carousel = reactive({
-    itemLength: store.product.imgList.value.length,
+    itemLength: 0,
     position: 0,
     fullWidth: 0,
+    displayWidth: 0
   });
 
-  const calcuteCarouselWidth = () => {
-    carousel.fullWidth = carousel.itemLength * screenSize.value;
-    container.value.style.width = `${carousel.fullWidth}px`;
-    // revert to first item on screen resize
-    carousel.position = 0;
-    container.value.style.transform = "translateX(0)";
-  };
 
-  onMounted(() => calcuteCarouselWidth());
-  watch(screenSize, () => calcuteCarouselWidth());
+  watch(
+    () => carousel.displayWidth,
+    () => {
+      carousel.fullWidth = carousel.itemLength * carousel.displayWidth
+      carouselDOM.value.style.width = `${carousel.fullWidth}px`
 
-  const prevPhoto = () => {
-    carousel.position += screenSize.value;
-    if (carousel.position === screenSize.value)
-      carousel.position = screenSize.value - carousel.fullWidth;
-    container.value.style.transform = `translateX(${carousel.position}px)`;
-  };
+      // On resize reset the position
+      carousel.position = 0
+    }
+  )
+
+  watch(
+    () => carousel.position,
+    () => carouselDOM.value.style.transform = `translateX(${carousel.position}px)`
+  )
+
+  onMounted(() => {
+    carouselDOM.value = carouselContainer.value.children[0]
+    carousel.itemLength = carouselDOM.value.children.length
+
+    observer.value = new ResizeObserver((entries) => {
+      for(let entry of entries) {
+        carousel.displayWidth = entry.contentBoxSize
+          ? entry.contentBoxSize[0].inlineSize
+          : entry.contentRect.width
+      } 
+    })
+
+    observer.value.observe(carouselContainer.value)
+  })
+
+  onBeforeUnmount(() => observer.value.disconnect())
 
   const nextPhoto = () => {
-    carousel.position -= screenSize.value;
+    carousel.position -= carousel.displayWidth
     if (carousel.position === -carousel.fullWidth) carousel.position = 0;
-    container.value.style.transform = `translateX(${carousel.position}px)`;
-  };
+  }
 
-  return { container, nextPhoto, prevPhoto };
+  const prevPhoto = () => {
+    carousel.position += carousel.displayWidth
+    if (carousel.position === carousel.displayWidth)
+      carousel.position = carousel.displayWidth - carousel.fullWidth;
+  }
+
+  return { nextPhoto, prevPhoto };
 };
 
 export default useCarousel;

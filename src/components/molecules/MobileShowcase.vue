@@ -1,17 +1,19 @@
 <script setup>
-import { inject } from "vue";
+import { inject, ref } from "vue";
 import useCarousel from "../../composables/useCarousel";
 import IconPrevButton from "../atoms/buttons/IconPrevButton.vue";
 import IconNextButton from "../atoms/buttons/IconNextButton.vue";
 
 const store = inject("store");
 const { imgList } = store.product;
-const { container, nextPhoto, prevPhoto } = useCarousel();
+
+const carouselContainer = ref()
+const { nextPhoto, prevPhoto } = useCarousel(carouselContainer);
 </script>
 
 <template>
-  <section class="relative h-full overflow-hidden">
-    <div class="absolute inset-0 grid grid-flow-col duration-500" ref="container">
+  <section class="relative h-full overflow-hidden" ref="carouselContainer">
+    <div class="absolute inset-0 grid grid-flow-col duration-500">
       <!-- Items of the carousel -->
       <!-- https://codelabs.developers.google.com/codelabs/avif#0 -->
       <picture v-for="(img, idx) in imgList">

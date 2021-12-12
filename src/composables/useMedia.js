@@ -1,13 +1,12 @@
-import { ref, onMounted, reactive } from "vue";
+import { ref, reactive, shallowRef, onMounted, onBeforeUnmount } from "vue";
 
-const screenSize = ref(window.innerWidth);
+const screenSize = ref();
+const resizer = shallowRef()
 
 const breakpoints = reactive({
   tablet: 639,
   desktop: 1023,
 });
-
-const updateScreenSize = () => (screenSize.value = window.innerWidth);
 
 /**
  * Function that check if we should show a content on a specified breakpoint
@@ -20,10 +19,14 @@ const showOn = (breakpoint) => {
 };
 
 export default () => {
-  onMounted(() => window.addEventListener("resize", updateScreenSize));
+  onMounted(() => {
+    resizer.value = new ResizeObserver(() => screenSize.value = window.innerWidth)
+    resizer.value.observe(document.body)
+  })
+
+  onBeforeUnmount(() => resizer.value.disconnect)
 
   return {
-    screenSize,
     showOn,
   };
 };

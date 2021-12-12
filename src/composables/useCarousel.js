@@ -3,7 +3,7 @@ import { watch, onMounted, onBeforeUnmount, reactive, shallowRef } from "vue";
 const useCarousel = (carouselContainer) => {
   // https://www.sitepoint.com/vue-3-reactivity-system/#shallowmethods
   // shallowRef creates a ref which tracks only its value property without making its value reactive.
-  const observer = shallowRef()
+  const resizer = shallowRef()
   const carouselDOM = shallowRef()
 
   const carousel = reactive({
@@ -31,10 +31,10 @@ const useCarousel = (carouselContainer) => {
   )
 
   onMounted(() => {
-    carouselDOM.value = carouselContainer.value.children[0]
+    carouselDOM.value = carouselContainer.value.children[1]
     carousel.itemLength = carouselDOM.value.children.length
 
-    observer.value = new ResizeObserver((entries) => {
+    resizer.value = new ResizeObserver((entries) => {
       for(let entry of entries) {
         carousel.displayWidth = entry.contentBoxSize
           ? entry.contentBoxSize[0].inlineSize
@@ -42,10 +42,8 @@ const useCarousel = (carouselContainer) => {
       } 
     })
 
-    observer.value.observe(carouselContainer.value)
+    resizer.value.observe(carouselContainer.value)
   })
-
-  onBeforeUnmount(() => observer.value.disconnect())
 
   const nextPhoto = () => {
     carousel.position -= carousel.displayWidth
@@ -57,6 +55,8 @@ const useCarousel = (carouselContainer) => {
     if (carousel.position === carousel.displayWidth)
       carousel.position = carousel.displayWidth - carousel.fullWidth;
   }
+
+  onBeforeUnmount(() => resizer.value.disconnect())
 
   return { nextPhoto, prevPhoto };
 };

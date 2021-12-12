@@ -1,10 +1,10 @@
-import { watch, onMounted, onBeforeUnmount, reactive, shallowRef } from "vue";
+import { watch, onMounted, onBeforeUnmount, reactive, ref, shallowRef } from "vue";
 
 const useCarousel = (carouselContainer) => {
   // https://www.sitepoint.com/vue-3-reactivity-system/#shallowmethods
   // shallowRef creates a ref which tracks only its value property without making its value reactive.
   const resizer = shallowRef()
-  const carouselDOM = shallowRef()
+  const carouselDOM = ref()
 
   const carousel = reactive({
     itemLength: 0,

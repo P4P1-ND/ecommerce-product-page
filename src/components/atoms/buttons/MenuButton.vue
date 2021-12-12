@@ -6,7 +6,7 @@ import IconMenu from "../icons/IconMenu.vue";
 <template>
   <AppButton variant="flat" class="group" aria-label="Menu Button">
     <IconMenu class="group-hover:text-neutral-800 group-focus:text-neutral-800" />
-    <div
+    <span
       class="
         absolute
         -inset-x-2
@@ -16,6 +16,6 @@ import IconMenu from "../icons/IconMenu.vue";
         opacity-0
         group-focus:opacity-100
       "
-    ></div>
+    ></span>
   </AppButton>
 </template>

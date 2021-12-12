@@ -13,6 +13,7 @@ const { nextPhoto, prevPhoto } = useCarousel(carouselContainer);
 
 <template>
   <section class="relative h-full overflow-hidden" ref="carouselContainer">
+    <h2 class="sr-only">Product Carousel</h2>
     <div class="absolute inset-0 grid grid-flow-col duration-500">
       <!-- Items of the carousel -->
       <!-- https://codelabs.developers.google.com/codelabs/avif#0 -->

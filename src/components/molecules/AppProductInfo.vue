@@ -6,10 +6,12 @@ import ProductAmount from "./ProductAmount.vue";
 
 <template>
   <article class="p-5 max-w-lg mx-auto sm:pt-14 lg:p-0">
+    <h2 class="sr-only">Product Description</h2>
     <ProductDescription />
-    <div class="mt-8 grid gap-3 sm:(justify-between grid-cols-[40%,56%])">
+    <section class="mt-8 grid gap-3 sm:(justify-between grid-cols-[40%,56%])">
+      <h2 class="sr-only">Add to cart</h2>
       <ProductAmount />
       <AddToCartButton />
-    </div>
+    </section>
   </article>
 </template>

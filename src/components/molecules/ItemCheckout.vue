@@ -18,6 +18,7 @@ const {
 
 <template>
   <section class="px-5 py-8 h-48 grid place-content-center">
+    <h2 class="sr-only">Item Checkout</h2>
     <p v-if="isCartEmpty()" class="text-neutral-600 font-bold text-base">Your cart is empty.</p>
 
     <article v-else class="space-y-6">

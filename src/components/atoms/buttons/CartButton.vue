@@ -11,8 +11,9 @@ const {
 </script>
 
 <template>
+  <!-- https://html.spec.whatwg.org/multipage/dom.html#phrasing-content-2 -->
   <AppButton variant="flat" class="group" aria-label="Cart Button">
-    <div
+    <span
       :class="[isCartEmpty() ? 'hidden' : 'block']"
       class="
         absolute
@@ -27,7 +28,7 @@ const {
       "
     >
       <span class="text-xs font-bold text-neutral-200">{{ qty }}</span>
-    </div>
+    </span>
     <IconCart class="group-hover:text-neutral-800 group-focus:text-neutral-800" />
   </AppButton>
 </template>

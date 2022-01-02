@@ -53,7 +53,7 @@ const prevItem = () => {
       >
         <CloseButton variantClose="primary" @click="close" class="justify-self-end" />
 
-        <div class="h-100 relative">
+        <div class="relative">
           <AppButton tabindex="-1" variant="flat" class="rounded-3xl overflow-hidden">
             <picture>
               <source type="image/avif" :srcset="`./img/products/${mainImg}.avif`" />
